@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Distilled Data — Dataset Distillation via Drifting</title>
+  <script src="../theme.js"></script>
+  <meta name="description" content="Browse every distilled dataset from Dataset Distillation via Drifting, streamed from Hugging Face.">
+  <link rel="canonical" href="https://drifting-distillation.github.io/data/">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="../assets/social/favicon-32.png">
+  <link rel="apple-touch-icon" href="../assets/social/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dataset Distillation via Drifting">
+  <meta property="og:url" content="https://drifting-distillation.github.io/data/">
+  <meta property="og:title" content="Distilled Data — Dataset Distillation via Drifting">
+  <meta property="og:description" content="Browse every distilled dataset from Dataset Distillation via Drifting, streamed from Hugging Face.">
+  <meta property="og:image" content="https://drifting-distillation.github.io/assets/social/card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Distilled ImageNet images from Dataset Distillation via Drifting: a rooster, red panda, goldfinch, green snake, tiger shark and sea urchin">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Distilled Data — Dataset Distillation via Drifting">
+  <meta name="twitter:description" content="Browse every distilled dataset from Dataset Distillation via Drifting, streamed from Hugging Face.">
+  <meta name="twitter:image" content="https://drifting-distillation.github.io/assets/social/card.jpg">
+  <style>
+    :root {
+      --bg: #fcfcfa; --fg: #1d1d1f; --muted: #6b6b70; --line: #e4e4e0;
+      --accent: #750014; --card: #ffffff; color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #141416; --fg: #ececec; --muted: #9a9aa0; --line: #2c2c30;
+        --accent: #e8606f; --card: #1c1c1f; color-scheme: dark;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #141416; --fg: #ececec; --muted: #9a9aa0; --line: #2c2c30;
+      --accent: #e8606f; --card: #1c1c1f; color-scheme: dark;
+    }
+    .theme-toggle {
+      position: fixed; top: 12px; right: 12px; z-index: 10;
+      width: 36px; height: 36px; padding: 0; border-radius: 50%;
+      border: 1px solid var(--line); background: var(--card); color: var(--fg);
+      font-size: 1.1rem; line-height: 1; cursor: pointer;
+    }
+    .theme-toggle:hover { border-color: var(--accent); }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.6;
+    }
+    a { color: var(--accent); }
+    header { max-width: 1100px; margin: 0 auto; padding: 40px 16px 8px; }
+    header .back { font-size: 0.9rem; text-decoration: none; }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin: 8px 0 6px; letter-spacing: -0.02em; }
+    main { max-width: 1100px; margin: 0 auto; padding: 0 16px 48px; }
+
+    .picker {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px; margin: 24px 0 8px;
+    }
+    label.field { display: flex; flex-direction: column; gap: 4px; font-size: 0.8rem; color: var(--muted); }
+    select, input, button {
+      font: inherit; color: var(--fg); background: var(--card);
+      border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px;
+    }
+    button { cursor: pointer; }
+    button:hover, select:hover { border-color: var(--accent); }
+    .setinfo { color: var(--muted); font-size: 0.9rem; margin: 6px 0 0; min-height: 1.6em; }
+
+    .controls { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+    .controls input { flex: 1 1 220px; }
+    .controls .chev { width: 18px; height: 18px; display: block; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .controls #prev, .controls #next { display: inline-flex; align-items: center; justify-content: center; width: 44px; padding: 0; }
+    .class-label { font-weight: 600; margin: 16px 0 10px; text-transform: capitalize; }
+
+    .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    @media (max-width: 600px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    .grid .cell {
+      aspect-ratio: 1; border-radius: 6px; background: var(--line); overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .grid.wide .cell { aspect-ratio: auto; background: none; flex-direction: column; align-items: stretch; }
+    .grid img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+    .grid video { width: 100%; display: block; border-radius: 6px; }
+    .grid audio { width: 100%; }
+    .grid .cap { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+
+    .status { color: var(--muted); font-size: 0.9rem; min-height: 1.6em; margin: 0 0 8px; }
+    .status.error { color: var(--accent); }
+
+    .lightbox {
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.88);
+      display: flex; align-items: center; justify-content: center; cursor: zoom-out; padding: 16px;
+    }
+    .lightbox[hidden] { display: none; }
+    .lightbox img { max-width: 92vw; max-height: 92vh; border-radius: 8px; }
+
+  </style>
+  <script data-goatcounter="https://driftingdistillation.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>  <!-- page views + data-goatcounter-click events; no cookies -->
+</head>
+<body>
+  <header>
+    <a class="back" href="../">&larr; Dataset Distillation via Drifting</a>
+    <h1>Distilled data</h1>
+  </header>
+
+  <main>
+    <div class="picker">
+      <label class="field">Dataset<select id="dataset"></select></label>
+      <label class="field">Setting<select id="setting"></select></label>
+      <label class="field">Samples per class<select id="ipc"></select></label>
+    </div>
+    <p id="setinfo" class="setinfo"></p>
+
+    <div class="controls">
+      <button id="prev" aria-label="Previous class"><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <input id="search" list="class-list" placeholder="Search a class" autocomplete="off" aria-label="Search a class">
+      <datalist id="class-list"></datalist>
+      <button id="next" aria-label="Next class"><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      <button id="random">Random</button>
+    </div>
+    <p id="class-label" class="class-label"></p>
+    <p id="status" class="status" role="status"></p>
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <div id="lightbox" class="lightbox" hidden><img id="lightbox-img" alt=""></div>
+
+  <script type="module" src="data.js"></script>
+</body>
+</html>

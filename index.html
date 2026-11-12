@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dataset Distillation via Drifting</title>
+  <meta name="description" content="We distill large datasets down to just a few synthetic samples per class via drifting. NeurIPS 2026.">
+  <link rel="canonical" href="https://drifting-distillation.github.io/">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/social/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/social/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dataset Distillation via Drifting">
+  <meta property="og:url" content="https://drifting-distillation.github.io/">
+  <meta property="og:title" content="Dataset Distillation via Drifting (NeurIPS 2026)">
+  <meta property="og:description" content="We distill large datasets down to just a few synthetic samples per class via drifting. NeurIPS 2026.">
+  <meta property="og:image" content="https://drifting-distillation.github.io/assets/social/card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Distilled ImageNet images from Dataset Distillation via Drifting: a rooster, red panda, goldfinch, green snake, tiger shark and sea urchin">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dataset Distillation via Drifting (NeurIPS 2026)">
+  <meta name="twitter:description" content="We distill large datasets down to just a few synthetic samples per class via drifting. NeurIPS 2026.">
+  <meta name="twitter:image" content="https://drifting-distillation.github.io/assets/social/card.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css">
+  <link rel="stylesheet" href="style.css?v=2">
+  <script src="theme.js"></script>
+  <script src="copy.js" defer></script>
+  <script data-goatcounter="https://driftingdistillation.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>  <!-- page views + data-goatcounter-click events; no cookies -->
+</head>
+<body>
+  <header class="hero">
+    <h1>Dataset Distillation via Drifting</h1>
+    <p class="venue">NeurIPS 2026</p>
+    <p class="authors">
+      <a href="https://georgecazenavette.github.io/" target="_blank" rel="noopener">George Cazenavette</a>,
+      <a href="https://angelinaquan.com/" target="_blank" rel="noopener">Angelina Quan</a>,
+      <a href="https://giannisdaras.github.io/" target="_blank" rel="noopener">Giannis Daras</a>,<br>
+      <a href="https://groups.csail.mit.edu/vision/torralbalab/" target="_blank" rel="noopener">Antonio Torralba</a>, and
+      <a href="https://www.vincentsitzmann.com/" target="_blank" rel="noopener">Vincent Sitzmann</a>
+    </p>
+    <p class="affil">Massachusetts Institute of Technology</p>
+    <nav class="links">
+      <a class="btn" href="assets/paper.pdf" target="_blank" rel="noopener" data-goatcounter-click="header-paper" data-goatcounter-title="Paper (header button)"><i class="fa-solid fa-file-pdf icon" aria-hidden="true"></i>Paper</a>
+      <a class="btn" href="https://github.com/GeorgeCazenavette/drifting-distillation" target="_blank" rel="noopener" data-goatcounter-click="header-code" data-goatcounter-title="Code (header button)"><i class="fa-brands fa-github icon" aria-hidden="true"></i>Code</a>
+      <a class="btn" href="https://huggingface.co/datasets/georgecazenavette/drifting-distillation" target="_blank" rel="noopener" data-goatcounter-click="header-datasets" data-goatcounter-title="Datasets on Hugging Face (header button)"><span class="icon emoji" aria-hidden="true">🤗</span>Datasets</a>
+      <a class="btn" href="data/" data-goatcounter-click="header-data-browser" data-goatcounter-title="Data Browser (header button)"><i class="fa-solid fa-images icon" aria-hidden="true"></i>Data Browser</a>
+      <a class="btn" href="https://georgecazenavette.github.io/drifting-distillation-art/" target="_blank" rel="noopener" data-goatcounter-click="header-art-gallery" data-goatcounter-title="Art Gallery (header button)"><i class="fa-solid fa-palette icon" aria-hidden="true"></i>Art Gallery</a>
+      <details class="more">
+        <summary class="btn">More Dataset Distillation</summary>
+        <div class="more-menu">
+          <a href="https://georgecazenavette.github.io/drifting-distillation-art/" target="_blank" rel="noopener" data-goatcounter-click="more-art" data-goatcounter-title="More: An Image Worth a Thousand Paintings"><span class="title">An Image Worth a Thousand Paintings</span><span class="where">ECCV 2026 Art Gallery</span></a>
+          <a href="https://linear-gradient-matching.github.io/" target="_blank" rel="noopener" data-goatcounter-click="more-lgm" data-goatcounter-title="More: Pre-Trained Self-Supervised (NeurIPS 2025)"><span class="title">Dataset Distillation for Pre-Trained Self-Supervised Vision Models</span><span class="where">NeurIPS 2025</span></a>
+          <a href="https://georgecazenavette.github.io/glad/" target="_blank" rel="noopener" data-goatcounter-click="more-glad" data-goatcounter-title="More: GLaD (CVPR 2023)"><span class="title">Generalizing Dataset Distillation via Deep Generative Prior</span><span class="where">CVPR 2023</span></a>
+          <a href="https://georgecazenavette.github.io/mtt-distillation/" target="_blank" rel="noopener" data-goatcounter-click="more-mtt" data-goatcounter-title="More: MTT (CVPR 2022)"><span class="title">Dataset Distillation by Matching Training Trajectories</span><span class="where">CVPR 2022</span></a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>TL;DR</h2>
+      <p>In this work, we distill large datasets down to just a few synthetic samples per class. We do this via <span class="def"><button type="button" class="term" aria-expanded="false" aria-describedby="drifting-def">drifting</button><span class="bubble" id="drifting-def" role="tooltip"><strong>What is drifting?</strong> In simplest terms, each distilled image is pulled towards every real image (weighted by a softmax kernel) while also being pushed away from every <em>other</em> synthetic image. Please see <a href="https://lambertae.github.io/projects/drifting/" target="_blank" rel="noopener">Generative Modeling via Drifting</a> for more details.</span></span> in the feature space of an arbitrary encoder.
+
+        These distilled images reach state-of-the-art results in the traditional from-scratch classification task as well as a newly proposed set of feature-space tasks.
+
+        We also show preliminary results generalizing this method to video and audio modalities. 
+
+        Please see <a href="assets/paper.pdf" target="_blank" rel="noopener" data-goatcounter-click="tldr-paper" data-goatcounter-title="Paper (TL;DR link)">our paper</a> for more details.
+      </p>
+    </section>
+
+    <section id="umap">
+      <h2>Distilled Images Approximate the Real Distribution</h2>
+      <p class="lede">The drifting loss ensures that the distilled images, together with their augmentations, approximately cover the real distribution. Hover over a point to see the real image (circle) or augmented distilled image (triangle).</p>
+      <div class="umap-wrap">
+        <svg id="umap-plot" class="umap-plot" role="img" aria-label="UMAP of real and distilled goldfish"></svg>
+        <div id="umap-tip" class="umap-tip" hidden><div></div><span></span></div>
+      </div>
+      <p class="umap-legend">
+        <span class="item"><svg viewBox="0 0 16 16"><path d="M8,1L9.7,5.6L14.7,5.8L10.8,8.9L12.1,13.7L8,11L3.9,13.7L5.2,8.9L1.3,5.8L6.3,5.6Z" fill="#9aa6b2" stroke="currentColor" stroke-width="1"/></svg>Distilled</span>
+        <span class="item"><svg viewBox="0 0 16 16"><path d="M8,2L14,13L2,13Z" fill="#9aa6b2"/></svg>Augmentations of distilled</span>
+        <span class="item"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5" fill="#9aa6b2"/></svg>Real</span>
+        <label class="umap-augs">Augmentations per image
+          <input id="umap-augs" type="range" min="0" max="100" value="50"><span id="umap-augs-n">50</span></label>
+      </p>
+    </section>
+
+    <section id="browser">
+      <h2>ImageNet-1k Distilled via Drifting</h2>
+      <p class="lede">These 10 images per class were initialized from noise and then distilled via drifting in DINOv3's feature space.</p>
+      <p class="cta"><a class="cta-link" href="data/" data-goatcounter-click="view-all-datasets" data-goatcounter-title="View all distilled datasets (ImageNet section)">View all of our distilled datasets &rarr;</a></p>
+      <div class="controls">
+        <button id="prev" aria-label="Previous class"><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <input id="search" list="class-list" placeholder="Search a class, e.g. goldfish" autocomplete="off">
+        <datalist id="class-list"></datalist>
+        <button id="next" aria-label="Next class"><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        <button id="random">Random</button>
+      </div>
+      <p id="class-label" class="class-label"></p>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <section id="pyramid">
+      <h2>Image Pyramids</h2>
+      <p class="lede">We parameterize our distilled images as a Laplacian pyramid of different resolutions, from 1&times;1 to 256&times;256. The pyramid acts as an implicit regularizer on the frequency magnitudes, leading to images that adopt a natural power spectrum. The widget below shows the contribution of each layer to the final image.</p>
+      <div class="pyr">
+        <div class="pyr-main">
+          <canvas id="pyr-canvas" width="256" height="256"></canvas>
+          <div class="pyr-controls">
+            <button id="pyr-play">Play</button>
+            <input id="pyr-slider" type="range" min="0" max="8" value="8" aria-label="Finest level">
+            <div class="seg" role="group" aria-label="Level display">
+              <button id="pyr-original">Original</button>
+              <button id="pyr-interpolated" class="active">Interpolated</button>
+            </div>
+          </div>
+        </div>
+        <div id="pyr-levels" class="pyr-levels"></div>
+      </div>
+      <p class="hint">More jellyfish:</p>
+      <div id="pyr-thumbs" class="pyr-thumbs"></div>
+    </section>
+
+    <section id="scrubber">
+      <h2>Distillation Process</h2>
+      <p class="lede">Distilled images are initialized with noise and then optimized via Adam w.r.t. the drifting loss. The jittering in the early part comes from adding a new pyramid layer every 200 steps. 10,000 </p>
+      <div class="pyr-controls tl-controls">
+        <button id="tl-play" disabled>Play</button>
+        <input id="tl-slider" type="range" min="0" max="0" value="0" disabled aria-label="Optimization step">
+        <span id="tl-step" class="tl-step"></span>
+      </div>
+      <div id="tl-grid" class="tl-grid"></div>
+    </section>
+
+    <section id="art">
+      <h2>An Image Worth a Thousand Paintings</h2>
+      <div class="art">
+        <div class="art-text">
+          <p>In our ECCV 2026 Art Gallery piece, we distill each artist's entire body of work into a single large canvas.</p>
+          <a class="cta-link" href="https://georgecazenavette.github.io/drifting-distillation-art/" target="_blank" rel="noopener" data-goatcounter-click="visit-gallery" data-goatcounter-title="Visit the gallery (art section)">Visit the gallery &rarr;</a>
+        </div>
+        <div class="art-pair">
+          <figure>
+            <img class="art-img" src="assets/art/monet.jpg" data-full="assets/art/full/monet.jpg" alt="Claude Monet's body of work distilled into a single image" width="900" height="900" loading="lazy">
+            <figcaption>Claude Monet</figcaption>
+          </figure>
+          <figure>
+            <img class="art-img" src="assets/art/baishi.jpg" data-full="assets/art/full/baishi.jpg" alt="Qi Baishi's body of work distilled into a single image" width="900" height="900" loading="lazy">
+            <figcaption>齊白石 (Qi Baishi)</figcaption>
+          </figure>
+        </div>
+        
+      </div>
+    </section>
+
+    <section>
+      <h2>Citation</h2>
+      <pre class="bibtex">@inproceedings{cazenavette2026drifting,
+  title={Dataset Distillation via Drifting},
+  author={Cazenavette, George and Quan, Angelina and Daras, Giannis and Torralba, Antonio and Sitzmann, Vincent},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2026}
+}</pre>
+    </section>
+  </main>
+
+  <footer>Please email George at <a href="mailto:gcaz@mit.edu">gcaz@mit.edu</a> if you have any questions or would like to discuss research!</footer>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <img id="lightbox-img" alt="">
+  </div>
+
+  <script src="browser.js"></script>
+  <script src="pyramid.js"></script>
+  <script src="timelapse.js"></script>
+  <script src="umap.js"></script>
+  <script>
+    // Art previews open their full-size (2048 px) image in the page's lightbox.
+    (() => {
+      const box = document.getElementById("lightbox"), img = document.getElementById("lightbox-img");
+      document.querySelectorAll(".art-img").forEach((el) => el.addEventListener("click", () => {
+        img.src = el.dataset.full;
+        img.alt = el.alt;
+        box.classList.add("art");
+        box.hidden = false;
+      }));
+      box.addEventListener("click", () => box.classList.remove("art"));
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") box.classList.remove("art"); });
+    })();
+  </script>
+  <script>
+    // "drifting" definition bubble: hover shows it (CSS); click/tap toggles it, an outside
+    // click or Escape closes it.
+    (() => {
+      const def = document.querySelector(".def"), term = def.querySelector(".term");
+      const bubble = def.querySelector(".bubble");
+      // Centered under the word by default; shifted sideways to stay inside the window.
+      const place = () => {
+        bubble.style.marginLeft = "0px";
+        const r = bubble.getBoundingClientRect(), pad = 8;
+        const shift = Math.max(pad - r.left, Math.min(0, window.innerWidth - pad - r.right));
+        bubble.style.marginLeft = `${shift}px`;
+      };
+      const set = (open) => {
+        if (open) place();
+        def.classList.toggle("open", open);
+        term.setAttribute("aria-expanded", open);
+      };
+      def.addEventListener("mouseenter", place);
+      term.addEventListener("focus", place);
+      term.addEventListener("click", () => set(!def.classList.contains("open")));
+      document.addEventListener("click", (e) => { if (!def.contains(e.target)) set(false); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") set(false); });
+    })();
+
+    // Close the "More Dataset Distillation" menu on an outside click or Escape.
+    (() => {
+      const more = document.querySelector(".more");
+      document.addEventListener("click", (e) => { if (!more.contains(e.target)) more.open = false; });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") more.open = false; });
+    })();
+  </script>
+</body>
+</html>
